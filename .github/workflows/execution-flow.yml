@@ -75,3 +75,11 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
+  report:
+    runs-on: ubuntu-latest
+    if: failure()
+    steps:
+      - name: echo the report name
+        run: |
+          echo "Hey there! something went wrong can you please check"?
+          echo "check for the previous job sessions (dependent) job as well"
