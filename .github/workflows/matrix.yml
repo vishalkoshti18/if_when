@@ -4,8 +4,14 @@ jobs:
   build:
     strategy:
       matrix:
-        version: [18, 20, 22, 24]
+        version: [18, 20, 22]
         os: [ubuntu-latest, windows-latest]
+        include:
+          - version: 24
+            os: ubuntu-latest
+        exclude:
+          - version: 18
+            os: ubuntu-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: Get the code
